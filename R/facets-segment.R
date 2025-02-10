@@ -169,7 +169,7 @@ segsnps <- function(mat, cval=25, hetscale=FALSE, delta=0) {
 jointsegsummary <- function(jointseg) {
     # remove snps with NA in segs (due to NA in cnlr)
     jointseg <- jointseg[is.finite(jointseg$seg),]
-    jointseg <- jointseg[order(jointseg$seg, jointseg$chrom, jointseg$maploc), ]
+    jointseg <- jointseg[order(jointseg$chrom, jointseg$seg, jointseg$maploc), ]
     # initialize output table
     nsegs <- max(jointseg$seg)
     # segment start and end indices and number of loci
