@@ -171,13 +171,13 @@ jointsegsummary <- function(jointseg) {
     jointseg <- jointseg[is.finite(jointseg$seg),]
     # jointseg <- jointseg[order(jointseg$seg, jointseg$chrom, jointseg$maploc), ]
     # initialize output table
-    # nsegs <- max(jointseg$seg)
+    nsegs <- max(jointseg$seg)
     # segment start and end indices and number of loci
     seg.start <- c(1, (unname(table(jointseg$seg)) + 1)) #which(diff(c(0,jointseg$seg))==1)
     seg.end <- c(seg.start[-1]-1, nrow(jointseg))
     num.mark <- seg.end - seg.start + 1
     # initialize output table
-    nsegs <- length(seg.end)
+    # nsegs <- length(seg.end)
     # initialize the output
     out <- as.data.frame(matrix(0, nsegs, 6))
     names(out) <- c("chrom","seg","num.mark","nhet","cnlr.median","mafR")
