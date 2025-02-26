@@ -173,7 +173,7 @@ jointsegsummary <- function(jointseg) {
     # initialize output table
     # nsegs <- max(jointseg$seg)
     # segment start and end indices and number of loci
-    seg.start <- which(diff(c(0,jointseg$seg))==1)
+    seg.start <- c(1, (unname(table(jointseg$seg)) + 1)) #which(diff(c(0,jointseg$seg))==1)
     seg.end <- c(seg.start[-1]-1, nrow(jointseg))
     num.mark <- seg.end - seg.start + 1
     # initialize output table
